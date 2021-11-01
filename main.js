@@ -23,6 +23,7 @@ var ball = {
 
 function setup(){
   var canvas =  createCanvas(700,600);
+  canvas.parent("canvas")
 }
 
 
@@ -132,7 +133,7 @@ if(pcscore ==4){
     stroke("white");
     textSize(25)
     text("Game Over!☹☹",width/2,height/2);
-    text("Reload The Page!",width/2,height/2+30)
+    text("Click the RESTART button!",width/2,height/2+30)
     noLoop();
     pcscore = 0;
 }

@@ -1,6 +1,6 @@
 .heading
 {
-    width: 1000px;
+    width: 100%;
     text-align: left;
 }
 
@@ -18,4 +18,16 @@
 #start, #status
 {
     font-size: 22px;
+}
+
+#restart
+{
+    font-size: 25px;
+}
+
+.footer
+{
+    background-color: white;
+    font-size: 25px;
+    line-height: 2;
 }
