@@ -31,3 +31,8 @@
     font-size: 25px;
     line-height: 2;
 }
+
+#canvas
+{
+    background-color: white;
+}
