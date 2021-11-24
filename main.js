@@ -27,6 +27,7 @@ function setup(){
   video = createCapture(VIDEO);
   video.hide();
   poseNet = ml5.poseNet(video, modelLoaded);
+  poseNet.on('pose', gotPoses);
 }
 
 function modelLoaded()
@@ -35,6 +36,10 @@ function modelLoaded()
 }
 
 function draw(){
+  
+    fill("red");
+    stroke("red");
+    circle(20, 20, 20);
 
  background(0);
 
@@ -171,4 +176,19 @@ function paddleInCanvas(){
   if(mouseY < 0){
     mouseY =0;
   }  
+}
+WristX = "";
+WristY = "";
+WristScore = "";
+
+function gotPoses(results){
+  if(results.length > 0){
+    console.log(results);
+ 	  WristX = results[0].pose.rightWrist.x;
+		WristY = results[0].pose.rightWrist.y;
+    WristScore = results[0].pose.keypoints[10].score;
+
+    console.log("WristX = " + WristX + " , WristY = " + WristY + " , WristScore = " + WristScore);
+
+  }
 }
