@@ -25,6 +25,7 @@ function setup(){
   canvas =  createCanvas(700,600);
   canvas.parent("canvas")
   video = createCapture(VIDEO);
+  game_status = "";
   video.hide();
   poseNet = ml5.poseNet(video, modelLoaded);
   poseNet.on('pose', gotPoses);
@@ -37,22 +38,25 @@ function modelLoaded()
 
 function draw(){
 
- background(0);
+  background(0);
+   
+    fill("black");
+    stroke("black");
+    rect(680,0,20,700);
+   
+    fill("black");
+    stroke("black");
+    rect(0,0,20,700);
 
- image(video, 0, 0, 700, 600);
+  if(game_status == "start"){
+    image(video, 0, 0, 700, 600);
 
- fill("black");
- stroke("black");
- rect(680,0,20,700);
-
- fill("black");
- stroke("black");
- rect(0,0,20,700);
-
- if(WristScore > 0.002){
-  fill("red");
-  stroke("red");
-  circle(WristX, WristY, 40);
+    if(WristScore > 0.002){
+      fill("red");
+      stroke("red");
+      circle(WristX, WristY, 40);
+  }
+  
 }
  
    //funtion paddleInCanvas call 
@@ -182,6 +186,11 @@ function paddleInCanvas(){
 WristX = "";
 WristY = "";
 WristScore = "";
+
+function startGame(){
+  game_status = "start";
+  document.getElementById("status").innerHTML = "Game is loaded";
+}
 
 function gotPoses(results){
   if(results.length > 0){
