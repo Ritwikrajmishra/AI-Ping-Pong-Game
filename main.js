@@ -36,10 +36,6 @@ function modelLoaded()
 }
 
 function draw(){
-  
-    fill("red");
-    stroke("red");
-    circle(20, 20, 20);
 
  background(0);
 
@@ -52,6 +48,12 @@ function draw(){
  fill("black");
  stroke("black");
  rect(0,0,20,700);
+
+ if(WristScore > 0.002){
+  fill("red");
+  stroke("red");
+  circle(WristX, WristY, 40);
+}
  
    //funtion paddleInCanvas call 
    paddleInCanvas();
